@@ -41,7 +41,7 @@ namespace ZApi
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             ZCoreContext.ConnnectString = Configuration.GetConnectionString("CoreConnectString"); ;
-            services.AddDbContext<ZCoreContext>(options => options.UseSqlServer(ZCoreContext.ConnnectString));
+            services.AddDbContext<ZCoreContext>(options => options.UseSqlite(ZCoreContext.ConnnectString));
 
             #region api文档配置
             services.AddSwaggerGen(c =>

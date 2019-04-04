@@ -8,7 +8,16 @@ namespace EntityFramework.Core
 {
     public class ZCoreContext : DbContext
     {
-        public ZCoreContext() { }
+        private static bool _created = false;
+        public ZCoreContext()
+        {
+            if (!_created)
+            {
+                _created = true;
+                Database.EnsureDeleted();
+                Database.EnsureCreated();
+            }
+        }
 
         public ZCoreContext(DbContextOptions options) : base(options)
         {
@@ -21,7 +30,7 @@ namespace EntityFramework.Core
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(ConnnectString);
+                optionsBuilder.UseSqlite(@"Data Source= C:\Users\Administrator\source\repos\ZCore.DB");
             }
         }
 
