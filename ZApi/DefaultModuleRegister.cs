@@ -19,7 +19,7 @@ namespace ZApi
 
             builder.RegisterAssemblyTypes(GetAssembly("ZDomain")).Where(t => t.Name.EndsWith("Server")).AsImplementedInterfaces().InstancePerLifetimeScope();
            
-            builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>)).InstancePerLifetimeScope();
+            builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>)).AsImplementedInterfaces().InstancePerLifetimeScope();
         }
 
         public static Assembly GetAssembly(string assemblyName)
