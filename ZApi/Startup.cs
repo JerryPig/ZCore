@@ -46,7 +46,7 @@ namespace ZApi
             #region api文档配置
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "ZCore API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "ZApi", Version = "v1" });
                 c.CustomSchemaIds((type) => type.FullName);
                 //Set the comments path for the swagger json and ui.
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
@@ -85,7 +85,7 @@ namespace ZApi
             {
                 c.ShowExtensions();
                 c.RoutePrefix = "docs";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ZCore v1.0");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ZApi v1.0");
                 //c.EnableValidator();
                 c.DocExpansion(DocExpansion.Full);
             });

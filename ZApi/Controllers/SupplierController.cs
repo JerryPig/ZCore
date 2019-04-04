@@ -10,7 +10,7 @@ using ZDomain.Application;
 
 namespace ZApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Supplier/[action]")]
     [ApiController]
     public class SupplierController : ControllerBase
     {
@@ -22,12 +22,6 @@ namespace ZApi.Controllers
             _appServer = supplierAppServer;
         }
 
-        //[HttpPost]
-        //public ServerResult<SupplierOutputDto> Get([FromBody] SupplierInputDto supplierInputDto)
-        //{
-        //    return _appServer.AddSupplier(supplierInputDto);
-        //}
-
         /// <summary>
         /// 查询供应商
         /// </summary>
@@ -38,6 +32,7 @@ namespace ZApi.Controllers
         {
             return _appServer.GetSupplier(supplierPageDto);
         }
+
 
         /// <summary>
         /// 编辑供应商列表
@@ -60,6 +55,7 @@ namespace ZApi.Controllers
         public ServerResult<SupplierOutputDto> AddSupplier([FromBody] SupplierInputDto supplierInputDto)
         {
             return _appServer.AddSupplier(supplierInputDto);
+
         }
 
         /// <summary>

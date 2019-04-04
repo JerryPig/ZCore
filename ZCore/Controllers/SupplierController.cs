@@ -10,7 +10,7 @@ using ZDomain.Application;
 
 namespace ZCore.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Supplier/[action]")]
     [ApiController]
     public class SupplierController : ControllerBase
     {
